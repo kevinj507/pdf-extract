@@ -31,6 +31,7 @@ var Electronic = require('./lib/electronic');
  * @param {String} params.pdf_path the absolute path to the pdf file on disk
  * @param {Boolean} params.clean true if you want the temporary single page pdfs
  * @param {Boolean} options.type must be either "ocr" or "text"
+ * @param {Boolean} options.
  *
  * @return {Array} text_pages is an array of strings, where each string is the
  * extracted text for the matching page index in the pdf document
@@ -40,11 +41,11 @@ module.exports = function(pdf_path, options, cb) {
   var err;
   var processor = new Raw();
   if (!'pdf_path') {
-    err = 'you must supply a pdf path as the first parameter'
+    err = 'you must supply a pdf path as the first parameter';
     return cb(err);
   }
   if (!options) {
-    err =  'no options supplied. You must supply an options object with the "type" field set'
+    err =  'no options supplied. You must supply an options object with the "type" field set';
     return cb(err);
   }
   if (!options.hasOwnProperty('type') || ! options.type) {
@@ -67,7 +68,7 @@ module.exports = function(pdf_path, options, cb) {
       return cb(err);
     }
     processor.process(pdf_path, options);
-    cb();
+    return cb();
   });
   return processor;
-}
+};
