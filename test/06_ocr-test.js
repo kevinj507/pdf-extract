@@ -33,7 +33,7 @@ describe('06 OCR Test', function() {
       assert.ok(exists, 'tif file does not exist like it should at path: ' + tif_path);
       var options = [
         '-psm 1',
-        '-l dia',
+        '-l eng',
         'alphanumeric'
       ]
       ocr(tif_path, options, function (err, extract) {
