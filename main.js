@@ -31,7 +31,9 @@ var Electronic = require('./lib/electronic');
  * @param {String} params.pdf_path the absolute path to the pdf file on disk
  * @param {Boolean} params.clean true if you want the temporary single page pdfs
  * @param {Boolean} options.type must be either "ocr" or "text"
- * @param {Boolean} options.
+ * @param {Boolean} options.outputSearchablePdf true if you want to export image pdf to searchable pdf
+ * @param {Boolean} options.doTextCleaning true if you want to run text cleaner such as removing background noises
+ * @param {Array} options.textCleanerFlags is an array of strings to configure textcleaner script's command line flags
  *
  * @return {Array} text_pages is an array of strings, where each string is the
  * extracted text for the matching page index in the pdf document
