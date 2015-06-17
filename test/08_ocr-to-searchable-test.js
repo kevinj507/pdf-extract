@@ -34,7 +34,7 @@ describe('08 OCR to searchable pdf test', function() {
       '-psm 3'
     ],
     clean: false, // keep the temporary single page pdf files
-    doTextCleaning: true
+    doTextCleaning: false
   };
 
   var hash;
@@ -50,7 +50,7 @@ describe('08 OCR to searchable pdf test', function() {
   var searchable_pdf_path;
   it('should create searchable pdf from multipage raw scan pdf', function(done) {
     console.log('\nPlease be patient, this test make take a minute or more to complete');
-    this.timeout(240*1000);
+    this.timeout(60*60*1000);
     this.slow(120*1000);
     var processor = pdf(pdf_path, options, function (err) {
       should.not.exist(err);
